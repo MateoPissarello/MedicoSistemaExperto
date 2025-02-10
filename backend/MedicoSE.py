@@ -43,7 +43,99 @@ class DrHouse(KnowledgeEngine):
             }
             self.diagnosed = True
 
-    # Otras reglas de diagnóstico...
+    @Rule(
+        Sickness(symptom="Fiebre"),
+        Sickness(symptom="Tos persistente"),
+        Sickness(symptom="Dolor de cabeza"),
+        Sickness(symptom="Fatiga extrema"),
+        Sickness(symptom="Escalofríos"),
+    )
+    def flu_treatment(self):
+        if not self.diagnosed:
+            self.diagnosis_result = {
+                "diagnosis": "Gripe (Influenza)",
+                "treatment": "Reposo, líquidos, antivirales en casos específicos"
+            }
+            self.diagnosed = True
+
+    @Rule(
+        Sickness(symptom="Tos persistente"),
+        Sickness(symptom="Dificultad para respirar"),
+        Sickness(symptom="Congestión Nasal"),
+    )
+    def allergy_treatment(self):
+        if not self.diagnosed:
+            self.diagnosis_result = {
+                "diagnosis": "Alergia respiratoria",
+                "treatment": "Antihistamínicos, evitar alérgenos"
+            }
+            self.diagnosed = True
+
+    @Rule(
+        Sickness(symptom="Fatiga extrema"),
+        Sickness(symptom="Escalofríos"),
+    )
+    def arthritis_treatment(self):
+        if not self.diagnosed:
+            self.diagnosis_result = {
+                "diagnosis": "Artritis reumatoide",
+                "treatment": "Antiinflamatorios, fisioterapia"
+            }
+            self.diagnosed = True
+
+    @Rule(
+        Sickness(symptom="Fiebre"),
+        Sickness(symptom="Dolor de cabeza"),
+        Sickness(symptom="Dolor muscular"),
+        Sickness(symptom="Congestión Nasal"),
+    )
+    def measles_treatment(self):
+        if not self.diagnosed:
+            self.diagnosis_result = {
+                "diagnosis": " Sarampión",
+                "treatment": "Manejo de síntomas, aislamiento, vacunas para prevención"
+            }
+            self.diagnosed = True
+
+    @Rule(
+        Sickness(symptom="Fiebre"),
+        Sickness(symptom="Diarrea"),
+        Sickness(symptom="Náuseas o vómitos"),
+    )
+    def gastroenteritis_treatment(self):
+        if not self.diagnosed:
+            self.diagnosis_result = {
+                "diagnosis": " Gastroenteritis viral",
+                "treatment": "Hidratación, dieta blanda, medicamentos sintomáticos"
+            }
+            self.diagnosed = True
+
+    @Rule(
+        Sickness(symptom="Fiebre"),
+        Sickness(symptom="Fatiga extrema"),
+        Sickness(symptom="Dolor muscular"),
+        Sickness(symptom="Escalofríos"),
+    )
+    def dengue_treatment(self):
+        if not self.diagnosed:
+            self.diagnosis_result = {
+                "diagnosis": "Dengue",
+                "treatment": "Hidratación, control de fiebre y dolor"
+            }
+            self.diagnosed = True
+
+    @Rule(
+        Sickness(symptom="Diarrea"),
+        Sickness(symptom="Fatiga extrema"),
+    )
+    def ulcer_treatment(self):
+        if not self.diagnosed:
+            self.diagnosis_result = {
+                "diagnosis": "Úlcera gástrica",
+                "treatment": "Antiácidos, inhibidores de la bomba de protones, dieta adecuada"
+            }
+            self.diagnosed = True
+
 
     # Regla final para cuando no se encuentra ningún diagnóstico
     @Rule()
