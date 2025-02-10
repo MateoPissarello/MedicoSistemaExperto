@@ -7,7 +7,24 @@ class Sickness(Fact):
 
 
 class DrHouse(KnowledgeEngine):
-
+    """
+    DrHouse is a knowledge-based expert system for diagnosing and suggesting treatments for various illnesses based on symptoms.
+    Attributes:
+        diagnosed (bool): A flag to indicate if a diagnosis has been made.
+        diagnosis_result (dict): A dictionary to store the diagnosis and treatment.
+    Methods:
+        covid_19_treatment(): Diagnoses and suggests treatment for COVID-19.
+        pneumonia_treatment(): Diagnoses and suggests treatment for pneumonia.
+        flu_treatment(): Diagnoses and suggests treatment for influenza (flu).
+        allergy_treatment(): Diagnoses and suggests treatment for respiratory allergies.
+        arthritis_treatment(): Diagnoses and suggests treatment for rheumatoid arthritis.
+        measles_treatment(): Diagnoses and suggests treatment for measles.
+        gastroenteritis_treatment(): Diagnoses and suggests treatment for viral gastroenteritis.
+        dengue_treatment(): Diagnoses and suggests treatment for dengue fever.
+        ulcer_treatment(): Diagnoses and suggests treatment for gastric ulcers.
+        no_diagnosis(): Provides a default message when no diagnosis can be made.
+        get_diagnosis_dict(): Returns the diagnosis and treatment as a dictionary.
+    """
     # Variable para saber si ya se hizo un diagnóstico
     diagnosed = False
     diagnosis_result = {}  # Aquí almacenaremos el diagnóstico y tratamiento en formato diccionario
